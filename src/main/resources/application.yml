@@ -1,0 +1,28 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: configuration-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://${user.home}/config-repo
+          default-label: main
+          search-paths: .
+          clone-on-start: true
+
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health,info,refresh
+    endpoint:
+      health:
+        show-details: always
+
+  logging:
+    level:
+      org.springframework.cloud.config: DEBUG
+      org.springframework.boot: INFO
