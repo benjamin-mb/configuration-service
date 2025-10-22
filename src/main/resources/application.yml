@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: file://${user.home}/config-repo
+          uri: https://github.com/benjamin-mb/configuration-service.git
           default-label: main
           search-paths: .
           clone-on-start: true
