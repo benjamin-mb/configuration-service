@@ -1,7 +1,7 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://arkabenjamindb.clkqgco8gqzm.us-east-2.rds.amazonaws.com:3306/arkabenjamindb?useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://database-benjamin.cp86aekcgmq5.us-east-2.rds.amazonaws.com:3306/arka?useSSL=true&serverTimezone=UTC
     username: ${DB_USERNAME:admin}
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -17,7 +17,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin123@Benjamin-ARKALB-409397954.us-east-2.elb.amazonaws.com/eureka/
+      defaultZone: http://admin:admin123@arka-load-balancer-1687287239.us-east-2.elb.amazonaws.com:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
     registry-fetch-interval-seconds: 30
