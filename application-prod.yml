@@ -5,13 +5,13 @@ spring:
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-    # Configuración de HikariCP para evitar "Too many connections"
+
     hikari:
-      maximum-pool-size: 3          # Máximo 3 conexiones por servicio
+      maximum-pool-size: 3
       minimum-idle: 1
       connection-timeout: 20000
-      idle-timeout: 120000           # 2 minutos idle antes de cerrar
-      max-lifetime: 600000           # 10 minutos de vida máxima
+      idle-timeout: 120000
+      max-lifetime: 600000
       leak-detection-threshold: 30000
 
   jpa:
@@ -22,7 +22,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
-# Configuración de Eureka con Cloud Map
+
 eureka:
   client:
     service-url:
@@ -32,11 +32,13 @@ eureka:
     registry-fetch-interval-seconds: 30
     eureka-server-connect-timeout-seconds: 10
   instance:
-    prefer-ip-address: false  # ⬅️ CAMBIO CRÍTICO: usar hostname en lugar de IP
-    hostname: ${spring.application.name}.arka.local  # ⬅️ Hostname de Cloud Map
+    prefer-ip-address: false
+    hostname: ${spring.application.name}.arka.local
     non-secure-port: ${server.port:8080}
     instance-id: ${spring.application.name}:${random.value}
     lease-renewal-interval-in-seconds: 30
+    ip-address: ${spring.application.name}.arka.local
+
 
 springdoc:
   api-docs:
